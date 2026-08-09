@@ -1,6 +1,14 @@
 ## Hi there 👋
 
 [![GitHub Streak](https://streak-stats.demolab.com?user=RashidJK&theme=dark&hide_border=true&border_radius=20&fire=1181EB&ring=396BEB&currStreakLabel=1181EB)](https://git.io/streak-stats)
+
+<p>
+
+  <img src="https://github-readme-stats.vercel.app/api?username=RashidJK&show_icons=true&hide_border=true&theme=transparent" height="170" />
+
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=RashidJK&layout=compact&hide_border=true&theme=transparent" height="170" />
+
+</p>
 <!--
 **RashidJK/RashidJK** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
