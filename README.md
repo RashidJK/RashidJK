@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-[![GitHub Streak](https://streak-stats.demolab.com/?user=RashidJK)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=RashidJK&theme=dark&hide_border=true&border_radius=20&fire=1181EB&ring=396BEB&currStreakLabel=1181EB)](https://git.io/streak-stats)
 <!--
 **RashidJK/RashidJK** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
