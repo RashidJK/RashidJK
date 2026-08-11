@@ -1,6 +1,6 @@
 Rashid Khalfan
 
-Product builder · Developer · ICT student
+Product builder · Developer
 
 I build digital products around AI, productivity, business, and data.
 
@@ -44,11 +44,11 @@ GitHub
 
 A little more
 
-* 🎓 B.Sc. ICT — Data Management
-* 🌍 Based in Tanzania
-* 🧠 Interested in AI × software × business
-* 🚀 Building products under Flow-HQ
-* 📚 Always learning something new
+* B.Sc. ICT — Data Management
+* Based in Tanzania
+* Interested in AI × software × business
+* Building products under Flow-HQ
+* Always learning something new
 
 <br>
 
@@ -58,12 +58,6 @@ GitHub · LinkedIn
 
 <br>
 
-⸻
-
-<p align="center">
-  <sub>Build → learn → improve → repeat.</sub>
-</p>
-
 [![GitHub Streak](https://streak-stats.demolab.com?user=RashidJK&theme=dark&hide_border=true&border_radius=20&fire=1181EB&ring=396BEB&currStreakLabel=1181EB)](https://git.io/streak-stats)
 
 <p>
@@ -72,6 +66,10 @@ GitHub · LinkedIn
 
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=RashidJK&layout=compact&hide_border=true&theme=transparent" height="170" />
 
+</p>
+
+<p align="center">
+  <sub>Build → learn → improve → repeat.</sub>
 </p>
 <!--
 **RashidJK/RashidJK** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
