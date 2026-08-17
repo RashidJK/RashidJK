@@ -83,3 +83,4 @@
   text-anchor="middle">
   TOTAL STARS
 </text>
+</div>
