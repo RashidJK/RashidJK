@@ -40,7 +40,7 @@ font-size=“17”
 font-weight=“700”
 letter-spacing=“3”
 
-@USERNAME
+@RashidJK
   </text>
   <!-- Name -->
 
@@ -52,7 +52,7 @@ font-family=“Arial, Helvetica, sans-serif”
 font-size=“49”
 font-weight=“800”
 
-YOUR NAME
+Rashid J K
   </text>
   <!-- Tagline -->
 
