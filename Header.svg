@@ -20,6 +20,9 @@
       <feGaussianBlur stdDeviation="5" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <clipPath id="island"><rect width="1000" height="220" rx="26"/></clipPath>
+    <filter id="ringGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
     <radialGradient id="avGlow">
       <stop offset="45%" stop-color="#12d6c4" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#12d6c4" stop-opacity="0"/></radialGradient>
@@ -46,7 +49,7 @@
 
   <circle cx="120" cy="112" r="63" fill="none" stroke="url(#accent)"
           stroke-width="2.6" stroke-linecap="round"
-          stroke-dasharray="96.0 299.8" filter="url(#glow)">
+          stroke-dasharray="96.0 299.8" filter="url(#ringGlow)">
     <animateTransform attributeName="transform" type="rotate"
                       from="0 120 112" to="360 120 112"
                       dur="7s" repeatCount="indefinite"/>
@@ -60,13 +63,13 @@
                       dur="12s" repeatCount="indefinite"/>
   </circle>
 
-  <text x="185" y="58" fill="#46e6d5" font-size="17" font-weight="700"
+  <text x="202" y="58" fill="#46e6d5" font-size="17" font-weight="700"
         letter-spacing="3">@RashidJK</text>
-  <text x="185" y="112" fill="#eafffb" font-size="46" font-weight="800">Rashid.J.K</text>
-  <text x="188" y="142" fill="#43dfcf" font-size="17">Building digital products &amp; software.</text>
+  <text x="202" y="112" fill="#eafffb" font-size="46" font-weight="800">Rashid.J.K</text>
+  <text x="205" y="142" fill="#43dfcf" font-size="17">Building digital products &amp; software.</text>
 
-  <circle cx="193" cy="168" r="3.6" fill="#49e6d4"/>
-  <text x="207" y="172" fill="#9fb0ad" font-size="11.5" font-weight="700"
+  <circle cx="210" cy="168" r="3.6" fill="#49e6d4"/>
+  <text x="224" y="172" fill="#9fb0ad" font-size="11.5" font-weight="700"
         letter-spacing="1.8">DAR ES SALAAM, TZ<tspan fill="#5c6b69">  ·  </tspan>EAT +3</text>
 
   <path d="M655 46 L655 176" stroke="#ffffff" stroke-opacity="0.12"/>
