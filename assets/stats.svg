@@ -1,0 +1,63 @@
+<svg width="494" height="195" viewBox="0 0 494 195"
+     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub stats">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#050505"/><stop offset="38%" stop-color="#141416"/><stop offset="68%" stop-color="#1d1d20"/><stop offset="100%" stop-color="#0a0a0b"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12d6c4"/>
+      <stop offset="100%" stop-color="#49e6d4"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="card"><rect width="494" height="195" rx="26"/></clipPath>
+  </defs>
+  <rect width="494" height="195" rx="26" fill="url(#bg)"/>
+  <g clip-path="url(#card)">
+    <ellipse cx="306.28" cy="40" rx="300" ry="150" fill="url(#glow)"/>
+  </g>
+  <rect x="0.75" y="0.75" width="492.5" height="193.5" rx="25.25"
+        fill="none" stroke="#ffffff" stroke-opacity="0.13"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="28" y="42" fill="#43dfcf" font-size="13" font-weight="700"
+          letter-spacing="2.4">@RASHIDJK</text>
+    <text x="28" y="42" fill="#eafffb" font-size="13" font-weight="700"
+          letter-spacing="2.4" opacity="0"> </text>
+    <path d="M28 56 H466" stroke="#ffffff" stroke-opacity="0.10"/>
+    <g transform="translate(28,76) scale(0.62)">
+      <path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z" fill="#49e6d4" opacity="0.85"/>
+    </g>
+    <text x="52" y="88" fill="#7d8c8a" font-size="12.5">Total Stars</text>
+    <text x="232" y="88" fill="#eafffb" font-size="14" font-weight="700"
+          text-anchor="end">0</text>
+    <g transform="translate(262,76) scale(0.62)">
+      <path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-3a8 8 0 017.8 6.5H24v3h-4.2A8 8 0 014.2 13.5H0v-3h4.2A8 8 0 0112 4z" fill="#49e6d4" opacity="0.85"/>
+    </g>
+    <text x="286" y="88" fill="#7d8c8a" font-size="12.5">Total Commits</text>
+    <text x="466" y="88" fill="#eafffb" font-size="14" font-weight="700"
+          text-anchor="end">50</text>
+    <g transform="translate(28,110) scale(0.62)">
+      <path d="M6 3a3 3 0 00-1.5 5.6v6.8a3 3 0 101.5.1V8.6A3 3 0 006 3zm12 12.4V9a4 4 0 00-4-4h-1.6l1.8-1.8-1.1-1.1L9.7 5.7l3.4 3.4 1.1-1.1-1.8-1.5H14a2.5 2.5 0 012.5 2.5v6.4a3 3 0 101.5 0z" fill="#49e6d4" opacity="0.85"/>
+    </g>
+    <text x="52" y="122" fill="#7d8c8a" font-size="12.5">Pull Requests</text>
+    <text x="232" y="122" fill="#eafffb" font-size="14" font-weight="700"
+          text-anchor="end">0</text>
+    <g transform="translate(262,110) scale(0.62)">
+      <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a1.6 1.6 0 110 3.2A1.6 1.6 0 0112 5zm1.4 13h-2.8v-8h2.8z" fill="#49e6d4" opacity="0.85"/>
+    </g>
+    <text x="286" y="122" fill="#7d8c8a" font-size="12.5">Issues Opened</text>
+    <text x="466" y="122" fill="#eafffb" font-size="14" font-weight="700"
+          text-anchor="end">0</text>
+    <g transform="translate(28,144) scale(0.62)">
+      <path d="M4 2h14a2 2 0 012 2v18l-4-2-4 2-4-2-4 2V4a2 2 0 012-2zm2 4v2h10V6z" fill="#49e6d4" opacity="0.85"/>
+    </g>
+    <text x="52" y="156" fill="#7d8c8a" font-size="12.5">Public Repos</text>
+    <text x="232" y="156" fill="#eafffb" font-size="14" font-weight="700"
+          text-anchor="end">4</text>
+    <g transform="translate(262,144) scale(0.62)">
+      <path d="M8.5 11a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm7 0a3 3 0 100-6 3 3 0 000 6zM8.5 13C4.9 13 2 14.8 2 17v2h13v-2c0-2.2-2.9-4-6.5-4zm7 .5c-.8 0-1.6.1-2.3.3 1.7 1 2.8 2.5 2.8 4.2v1H22v-1.8c0-2.1-2.9-3.7-6.5-3.7z" fill="#49e6d4" opacity="0.85"/>
+    </g>
+    <text x="286" y="156" fill="#7d8c8a" font-size="12.5">Followers</text>
+    <text x="466" y="156" fill="#eafffb" font-size="14" font-weight="700"
+          text-anchor="end">2</text></g>
+</svg>
