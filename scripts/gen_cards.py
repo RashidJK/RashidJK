@@ -294,7 +294,7 @@ def smooth_path(pts, tension=0.42):
     return " ".join(d)
 
 
-def graph_card(days, window=14, span=126, w=1000, h=230):
+def graph_card(days, window=14, span=126, w=W, h=H):
     """Area chart of a rolling contribution sum. Y scales to the user's own peak."""
     today = dt.date.today()
     seq = []
@@ -310,7 +310,11 @@ def graph_card(days, window=14, span=126, w=1000, h=230):
     peak = max(rolled) if rolled else 0
     top = max(peak, 1)
 
-    pad_l, pad_r, pad_t, pad_b = 46, 30, 62, 44
+    narrow = w < 700
+    pad_l = 40 if narrow else 46
+    pad_r = 26 if narrow else 30
+    pad_t = 52 if narrow else 62
+    pad_b = 34 if narrow else 44
     pw, ph = w - pad_l - pad_r, h - pad_t - pad_b
 
     pts = []
@@ -322,11 +326,15 @@ def graph_card(days, window=14, span=126, w=1000, h=230):
     line = smooth_path(pts)
     area = f"{line} L{pts[-1][0]:.1f} {pad_t+ph} L{pts[0][0]:.1f} {pad_t+ph} Z"
 
+    ts = 9.5 if narrow else 11
+    ss = 8.5 if narrow else 10.5
+    sub = (f"{window}d rolling · {span}d"
+           if narrow else f"{window}-day rolling total · last {span} days")
     out = [f'''
-    <text x="28" y="38" fill="{MUTED}" font-size="11" font-weight="700"
-          letter-spacing="2.2">CONTRIBUTION ACTIVITY</text>
-    <text x="{w-28}" y="38" fill="{DIM}" font-size="10.5"
-          text-anchor="end">{window}-day rolling total · last {span} days</text>''']
+    <text x="{pad_l-12}" y="36" fill="{MUTED}" font-size="{ts}" font-weight="700"
+          letter-spacing="2">CONTRIBUTION ACTIVITY</text>
+    <text x="{w-pad_r}" y="36" fill="{DIM}" font-size="{ss}"
+          text-anchor="end">{sub}</text>''']
 
     # horizontal guides, labelled with real values
     for frac in (0, 0.5, 1.0):
@@ -345,16 +353,21 @@ def graph_card(days, window=14, span=126, w=1000, h=230):
 
     # marker on the most recent point
     lx, ly = pts[-1]
+    # keep the label inside the plot and clear of the header row
+    near_right = lx > w - pad_r - 28
+    anchor = "end" if near_right else "middle"
+    tx = min(max(lx, pad_l + 14), w - pad_r - 2)
+    ty = ly - 15 if ly - 15 > pad_t + 8 else ly + 21
     out.append(f'''
     <circle cx="{lx:.1f}" cy="{ly:.1f}" r="9" fill="{ACCENT_B}" opacity="0.16"/>
     <circle cx="{lx:.1f}" cy="{ly:.1f}" r="3.6" fill="{ACCENT_B}"/>
-    <text x="{lx:.1f}" y="{ly-16:.1f}" fill="{TEXT}" font-size="12"
-          font-weight="700" text-anchor="middle">{rolled[-1]}</text>''')
+    <text x="{tx:.1f}" y="{ty:.1f}" fill="{TEXT}" font-size="12"
+          font-weight="700" text-anchor="{anchor}">{rolled[-1]}</text>''')
 
     # month ticks along the bottom
     seen = set()
     for i, d in enumerate(dates):
-        if d.strftime("%b") not in seen and d.day <= 7:
+        if d.strftime("%b") not in seen and d.day <= (10 if narrow else 7):
             seen.add(d.strftime("%b"))
             x = pad_l + (pw * i / max(len(rolled) - 1, 1))
             out.append(f'''
@@ -390,19 +403,15 @@ def main():
 
     if demo:
         data = dict(DEMO)
-        import random
-        random.seed(7)
+        import random, math
+        random.seed(3)
         base = dt.date.today()
-        # ~50 contributions scattered over four months: a genuinely light history
         data["days"] = {}
-        for i in range(140):
+        for i in range(150):
             d = (base - dt.timedelta(days=i)).isoformat()
-            r = random.random()
-            data["days"][d] = 0 if r < 0.68 else (1 if r < 0.9 else random.randint(2, 5))
-        s = {"total": 5210, "current": 46, "longest": 118,
-             "first": "Mar 4, 2021",
-             "cur_range": "Jul 5 – Aug 19, 2026",
-             "long_range": "Jan 9 – May 6, 2024"}
+            ramp = math.exp(-i / 26.0)
+            data["days"][d] = max(0, int(random.gauss(30 * ramp, 8 * ramp)))
+        s = streaks(data["days"])
     else:
         token = os.environ.get("GH_TOKEN")
         if not token:
@@ -414,6 +423,8 @@ def main():
     open(f"{OUT}/streak.svg", "w").write(streak_card(s))
     open(f"{OUT}/stats.svg", "w").write(stats_card(data, user))
     open(f"{OUT}/graph.svg", "w").write(graph_card(data["days"]))
+    open(f"{OUT}/graph-wide.svg", "w").write(
+        graph_card(data["days"], w=1000, h=230))
     print(f"wrote {OUT}/streak.svg and {OUT}/stats.svg")
 
 
