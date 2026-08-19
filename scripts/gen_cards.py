@@ -167,9 +167,9 @@ def commas(n):
     return f"{n:,}"
 
 
-def shell(inner, title):
+def shell(inner, title, w=W, h=H):
     stops = "".join(f'<stop offset="{o}" stop-color="{c}"/>' for o, c in BG_STOPS)
-    return f'''<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}"
+    return f'''<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}"
      xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{title}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">{stops}</linearGradient>
@@ -181,13 +181,13 @@ def shell(inner, title):
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.09"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="card"><rect width="{W}" height="{H}" rx="{RADIUS}"/></clipPath>
+    <clipPath id="card"><rect width="{w}" height="{h}" rx="{RADIUS}"/></clipPath>
   </defs>
-  <rect width="{W}" height="{H}" rx="{RADIUS}" fill="url(#bg)"/>
+  <rect width="{w}" height="{h}" rx="{RADIUS}" fill="url(#bg)"/>
   <g clip-path="url(#card)">
-    <ellipse cx="{W*0.62}" cy="40" rx="300" ry="150" fill="url(#glow)"/>
+    <ellipse cx="{w*0.62}" cy="40" rx="300" ry="150" fill="url(#glow)"/>
   </g>
-  <rect x="0.75" y="0.75" width="{W-1.5}" height="{H-1.5}" rx="{RADIUS-0.75}"
+  <rect x="0.75" y="0.75" width="{w-1.5}" height="{h-1.5}" rx="{RADIUS-0.75}"
         fill="none" stroke="#ffffff" stroke-opacity="{BORDER}"/>
   <g font-family="{FONT}">{inner}</g>
 </svg>
@@ -274,6 +274,111 @@ def stats_card(d, user):
     return shell("".join(out), "GitHub stats")
 
 
+
+# ---------------------------------------------------------------- graph
+def smooth_path(pts, tension=0.42):
+    """Catmull-Rom through the points, emitted as cubic beziers."""
+    if len(pts) < 2:
+        return ""
+    d = [f"M{pts[0][0]:.1f} {pts[0][1]:.1f}"]
+    for i in range(len(pts) - 1):
+        p0 = pts[i - 1] if i > 0 else pts[0]
+        p1, p2 = pts[i], pts[i + 1]
+        p3 = pts[i + 2] if i + 2 < len(pts) else pts[-1]
+        c1 = (p1[0] + (p2[0] - p0[0]) / 6 * tension,
+              p1[1] + (p2[1] - p0[1]) / 6 * tension)
+        c2 = (p2[0] - (p3[0] - p1[0]) / 6 * tension,
+              p2[1] - (p3[1] - p1[1]) / 6 * tension)
+        d.append(f"C{c1[0]:.1f} {c1[1]:.1f} {c2[0]:.1f} {c2[1]:.1f} "
+                 f"{p2[0]:.1f} {p2[1]:.1f}")
+    return " ".join(d)
+
+
+def graph_card(days, window=14, span=126, w=1000, h=230):
+    """Area chart of a rolling contribution sum. Y scales to the user's own peak."""
+    today = dt.date.today()
+    seq = []
+    for i in range(span + window, 0, -1):
+        d = (today - dt.timedelta(days=i - 1)).isoformat()
+        seq.append(days.get(d, 0))
+
+    rolled, dates = [], []
+    for i in range(window, len(seq)):
+        rolled.append(sum(seq[i - window:i]))
+        dates.append(today - dt.timedelta(days=len(seq) - i - 1))
+
+    peak = max(rolled) if rolled else 0
+    top = max(peak, 1)
+
+    pad_l, pad_r, pad_t, pad_b = 46, 30, 62, 44
+    pw, ph = w - pad_l - pad_r, h - pad_t - pad_b
+
+    pts = []
+    for i, v in enumerate(rolled):
+        x = pad_l + (pw * i / max(len(rolled) - 1, 1))
+        y = pad_t + ph - (ph * v / top)
+        pts.append((x, y))
+
+    line = smooth_path(pts)
+    area = f"{line} L{pts[-1][0]:.1f} {pad_t+ph} L{pts[0][0]:.1f} {pad_t+ph} Z"
+
+    out = [f'''
+    <text x="28" y="38" fill="{MUTED}" font-size="11" font-weight="700"
+          letter-spacing="2.2">CONTRIBUTION ACTIVITY</text>
+    <text x="{w-28}" y="38" fill="{DIM}" font-size="10.5"
+          text-anchor="end">{window}-day rolling total · last {span} days</text>''']
+
+    # horizontal guides, labelled with real values
+    for frac in (0, 0.5, 1.0):
+        y = pad_t + ph - ph * frac
+        out.append(f'''
+    <path d="M{pad_l} {y:.1f} H{w-pad_r}" stroke="#ffffff"
+          stroke-opacity="{0.09 if frac else 0.16}" stroke-width="1"
+          stroke-dasharray="{"" if frac == 0 else "3 5"}"/>
+    <text x="{pad_l-10}" y="{y+3.5:.1f}" fill="{DIM}" font-size="9.5"
+          text-anchor="end">{int(round(top*frac))}</text>''')
+
+    out.append(f'''
+    <path d="{area}" fill="url(#fade)"/>
+    <path d="{line}" fill="none" stroke="url(#accent)" stroke-width="2.4"
+          stroke-linecap="round" stroke-linejoin="round"/>''')
+
+    # marker on the most recent point
+    lx, ly = pts[-1]
+    out.append(f'''
+    <circle cx="{lx:.1f}" cy="{ly:.1f}" r="9" fill="{ACCENT_B}" opacity="0.16"/>
+    <circle cx="{lx:.1f}" cy="{ly:.1f}" r="3.6" fill="{ACCENT_B}"/>
+    <text x="{lx:.1f}" y="{ly-16:.1f}" fill="{TEXT}" font-size="12"
+          font-weight="700" text-anchor="middle">{rolled[-1]}</text>''')
+
+    # month ticks along the bottom
+    seen = set()
+    for i, d in enumerate(dates):
+        if d.strftime("%b") not in seen and d.day <= 7:
+            seen.add(d.strftime("%b"))
+            x = pad_l + (pw * i / max(len(rolled) - 1, 1))
+            out.append(f'''
+    <text x="{x:.1f}" y="{pad_t+ph+22}" fill="{DIM}" font-size="10"
+          text-anchor="middle">{d.strftime("%b")}</text>''')
+
+    if peak > 0:
+        pi = rolled.index(peak)
+        px, py = pts[pi]
+        if abs(px - lx) > 60:
+            out.append(f'''
+    <circle cx="{px:.1f}" cy="{py:.1f}" r="3.2" fill="none"
+            stroke="{ACCENT_B}" stroke-width="1.6"/>
+    <text x="{px:.1f}" y="{py-13:.1f}" fill="{MUTED}" font-size="10.5"
+          font-weight="700" text-anchor="middle">PEAK {peak}</text>''')
+
+    svg = shell("".join(out), "Contribution activity", w=w, h=h)
+    return svg.replace("</defs>", '''  <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#12d6c4" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#12d6c4" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>''')
+
+
 # ---------------------------------------------------------------- main
 DEMO = {"days": {}, "stars": 1284, "commits": 4317, "prs": 268,
         "issues": 143, "followers": 892, "repos": 47, "contributed": 31}
@@ -285,6 +390,15 @@ def main():
 
     if demo:
         data = dict(DEMO)
+        import random
+        random.seed(7)
+        base = dt.date.today()
+        # ~50 contributions scattered over four months: a genuinely light history
+        data["days"] = {}
+        for i in range(140):
+            d = (base - dt.timedelta(days=i)).isoformat()
+            r = random.random()
+            data["days"][d] = 0 if r < 0.68 else (1 if r < 0.9 else random.randint(2, 5))
         s = {"total": 5210, "current": 46, "longest": 118,
              "first": "Mar 4, 2021",
              "cur_range": "Jul 5 – Aug 19, 2026",
@@ -299,6 +413,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     open(f"{OUT}/streak.svg", "w").write(streak_card(s))
     open(f"{OUT}/stats.svg", "w").write(stats_card(data, user))
+    open(f"{OUT}/graph.svg", "w").write(graph_card(data["days"]))
     print(f"wrote {OUT}/streak.svg and {OUT}/stats.svg")
 
 
