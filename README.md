@@ -13,11 +13,15 @@
 
 ## ⏱️ Coding Activity
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-111%20hrs%2043%20mins-blue?style=flat)
+
+![AI Code Time](http://img.shields.io/badge/AI%20Code%20Time-117%20hrs%2020%20mins-blue?style=flat)
+
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-22-blue?style=flat)
 
 **🐱 My GitHub Data** 
 
-> 📦 41.0 kB Used in GitHub's Storage 
+> 📦 40.9 kB Used in GitHub's Storage 
  > 
 > 🏆 765 Contributions in the Year 2026
  > 
@@ -54,45 +58,45 @@ Sunday                   114 commits         ░░░░░░░░░░░�
 🕑︎ Time Zone: Africa/Dar_es_Salaam
 
 💬 Programming Languages: 
-TypeScript               6 hrs 48 mins       ███████░░░░░░░░░░░░░░░░░░   29.61 % 
-JavaScript               5 hrs 39 mins       ██████░░░░░░░░░░░░░░░░░░░   24.60 % 
-Other                    4 hrs 50 mins       █████░░░░░░░░░░░░░░░░░░░░   21.05 % 
-Dart                     3 hrs 1 min         ███░░░░░░░░░░░░░░░░░░░░░░   13.13 % 
-Markdown                 1 hr 13 mins        █░░░░░░░░░░░░░░░░░░░░░░░░   05.35 % 
+JavaScript               5 hrs 39 mins       ███████░░░░░░░░░░░░░░░░░░   27.47 % 
+TypeScript               5 hrs 38 mins       ███████░░░░░░░░░░░░░░░░░░   27.43 % 
+Other                    4 hrs 38 mins       ██████░░░░░░░░░░░░░░░░░░░   22.52 % 
+Dart                     2 hrs 21 mins       ███░░░░░░░░░░░░░░░░░░░░░░   11.46 % 
+Markdown                 1 hr 9 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   05.59 % 
 
 🔥 Editors: 
-Claude Code              16 hrs 52 mins      ██████████████████░░░░░░░   73.34 % 
-VS Code                  6 hrs 7 mins        ███████░░░░░░░░░░░░░░░░░░   26.66 % 
+Claude Code              14 hrs 24 mins      █████████████████░░░░░░░░   69.96 % 
+VS Code                  6 hrs 11 mins       ████████░░░░░░░░░░░░░░░░░   30.04 % 
 
 🐱‍💻 Projects: 
-Unknown Project          5 hrs 39 mins       ██████░░░░░░░░░░░░░░░░░░░   24.60 % 
-Budget                   4 hrs 9 mins        █████░░░░░░░░░░░░░░░░░░░░   18.11 % 
-rashid-s-product-studio  2 hrs 2 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   08.91 % 
-backend                  1 hr 54 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   08.29 % 
-prompt-stock-keeper      1 hr 34 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.87 % 
+Unknown Project          5 hrs 39 mins       ███████░░░░░░░░░░░░░░░░░░   27.47 % 
+Budget                   3 hrs 3 mins        ████░░░░░░░░░░░░░░░░░░░░░   14.83 % 
+backend                  2 hrs 37 mins       ███░░░░░░░░░░░░░░░░░░░░░░   12.77 % 
+prompt-stock-keeper      1 hr 34 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   07.68 % 
+rashid-s-product-studio  1 hr 25 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.94 % 
 ```
 
 🤖 **AI Coding This Week** 
 
 ```text
-⏱ AI Coding Time: 17 hrs 5 mins (74.35%)
+⏱ AI Coding Time: 14 hrs 41 mins (71.35%)
 
-✍️ 13,140 lines written by AI, 1,014 lines written by hand (92.84% AI-written)
+✍️ 8,723 lines written by AI, 1,014 lines written by hand (89.59% AI-written)
 
-🔤 15,233,992 Input Tokens, 1,993,831 Output Tokens
+🔤 10,280,776 Input Tokens, 1,903,701 Output Tokens
 
-💵 $558.75 Estimated AI Cost This Week
+💵 $443.08 Estimated AI Cost This Week
 
-🧠 22 AI Sessions, 182 AI Prompts
+🧠 21 AI Sessions, 140 AI Prompts
 
-Opus                     13,880 lines        █████████████████████████   100.00 % 
+Opus                     9,342 lines         █████████████████████████   100.00 % 
 Claude-Code              0 lines             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.00 % 
 
 🔎 AI Coding Insights:
-🤖 AI-Driven — 92.84% of written lines came from AI
-📄 Detailed Prompter — average 956 characters per prompt
-🔁 Iterative Prompter — average 8 prompts per session
-🚀 High AI Trust — 7.61% of changed lines were hand-edited
+🤖 AI-Driven — 89.59% of written lines came from AI
+📄 Detailed Prompter — average 1,106 characters per prompt
+🔁 Iterative Prompter — average 7 prompts per session
+🚀 High AI Trust — 10.9% of changed lines were hand-edited
 ```
 
 **I Mostly Code in TypeScript** 
@@ -112,7 +116,7 @@ CSS                      1 repo              █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/RashidJK/RashidJK/main/assets/bar_graph.png)
 
 
- Last Updated on 22/08/2026 21:05:30 UTC
+ Last Updated on 22/08/2026 21:49:39 UTC
 <!--END_SECTION:waka-->
 
 </div>
