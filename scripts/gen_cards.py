@@ -395,6 +395,7 @@ def graph_card(days, window=14, span=126, w=W, h=H):
 
 # ---------------------------------------------------------------- wakatime
 WAKA_URL = "https://wakatime.com/api/v1/users/current/stats/last_7_days"
+WAKA_ALL = "https://wakatime.com/api/v1/users/current/all_time_since_today"
 
 
 def fetch_waka(key):
@@ -407,9 +408,24 @@ def fetch_waka(key):
                      "User-Agent": "readme-cards"})
         with urllib.request.urlopen(req, timeout=30) as r:
             d = json.load(r)["data"]
-        return {"total": d.get("human_readable_total", "—"),
-                "languages": [(l["name"], l.get("text", ""), l.get("percent", 0.0))
-                              for l in d.get("languages", [])][:5]}
+        out = {"total": d.get("human_readable_total", "—"),
+               "all_time": "", "since": "",
+               "languages": [(l["name"], l.get("text", ""), l.get("percent", 0.0))
+                             for l in d.get("languages", [])][:5]}
+        try:
+            req2 = urllib.request.Request(
+                WAKA_ALL,
+                headers={"Authorization": "Basic " + _b64.b64encode(key.encode()).decode(),
+                         "User-Agent": "readme-cards"})
+            with urllib.request.urlopen(req2, timeout=30) as r2:
+                a = json.load(r2)["data"]
+            out["all_time"] = a.get("text", "")
+            start = (a.get("range") or {}).get("start_date", "")
+            if start:
+                out["since"] = dt.date.fromisoformat(start).strftime("%b %Y")
+        except Exception as e:
+            print("all-time total unavailable:", e)
+        return out
     except Exception as e:
         print("WakaTime unavailable:", e)
         return None
@@ -432,7 +448,7 @@ def waka_card(w_data):
           text-anchor="end">last 7 days · {w_data["total"]}</text>
     <path d="M28 54 H{W-28}" stroke="#ffffff" stroke-opacity="0.10"/>''']
 
-    y = 78
+    y = 70
     for name, text, pct in rows:
         out.append(f'''
     <text x="28" y="{y+4}" fill="{TEXT}" font-size="12.5"
@@ -441,12 +457,21 @@ def waka_card(w_data):
     {bar(258, y-4, 160, 7, pct)}
     <text x="{W-28}" y="{y+4}" fill="{MUTED}" font-size="11"
           font-weight="700" text-anchor="end">{pct:.0f}%</text>''')
-        y += 23
+        y += 20
 
     if not rows:
         out.append(f'''
     <text x="{W/2}" y="112" fill="{DIM}" font-size="12"
           text-anchor="middle">No coding activity recorded yet</text>''')
+
+    if w_data.get("all_time"):
+        since = f' · since {w_data["since"]}' if w_data.get("since") else ""
+        out.append(f'''
+    <path d="M28 {H-36} H{W-28}" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="28" y="{H-16}" fill="{DIM}" font-size="10.5"
+          letter-spacing="1.4">ALL TIME{since}</text>
+    <text x="{W-28}" y="{H-16}" fill="{TEXT}" font-size="11.5" font-weight="700"
+          text-anchor="end">{w_data["all_time"]}</text>''')
     return shell("".join(out), "Coding activity")
 
 
@@ -527,6 +552,7 @@ def main():
     open(f"{OUT}/rhythm.svg", "w").write(rhythm_card(data["days"]))
 
     wk = ({"total": "18 hrs 42 mins",
+           "all_time": "412 hrs 8 mins", "since": "May 2025",
            "languages": [("TypeScript", "7 hrs 12 mins", 38.4),
                          ("Dart", "4 hrs 51 mins", 25.9),
                          ("Python", "3 hrs 6 mins", 16.6),
