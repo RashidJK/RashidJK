@@ -20,7 +20,7 @@
         fill="none" stroke="#ffffff" stroke-opacity="0.13"/>
   <g font-family="Arial, Helvetica, sans-serif">
     <text x="82" y="86" fill="#eafffb" font-size="34" font-weight="800"
-          text-anchor="middle">867</text>
+          text-anchor="middle">873</text>
     <text x="82" y="112" fill="#43dfcf" font-size="9.5" font-weight="700"
           letter-spacing="1.6" text-anchor="middle">TOTAL CONTRIBUTIONS</text>
     <text x="82" y="132" fill="#7d8c8a" font-size="9.5"
@@ -42,9 +42,9 @@
             fill="url(#accent)"/>
     </g>
     <text x="247" y="94" fill="#eafffb" font-size="36" font-weight="800"
-          text-anchor="middle">27</text>
+          text-anchor="middle">0</text>
     <text x="247" y="150" fill="#43dfcf" font-size="9.5" font-weight="700"
           letter-spacing="1.6" text-anchor="middle">CURRENT STREAK</text>
     <text x="247" y="169" fill="#7d8c8a" font-size="9.5"
-          text-anchor="middle">Jul 27, 2026 – Aug 22, 2026</text></g>
+          text-anchor="middle">—</text></g>
 </svg>
