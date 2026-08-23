@@ -392,6 +392,107 @@ def graph_card(days, window=14, span=126, w=W, h=H):
   </defs>''')
 
 
+
+# ---------------------------------------------------------------- wakatime
+WAKA_URL = "https://wakatime.com/api/v1/users/current/stats/last_7_days"
+
+
+def fetch_waka(key):
+    """Pull last-7-days language totals. Returns None if unavailable."""
+    import base64 as _b64
+    try:
+        req = urllib.request.Request(
+            WAKA_URL,
+            headers={"Authorization": "Basic " + _b64.b64encode(key.encode()).decode(),
+                     "User-Agent": "readme-cards"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            d = json.load(r)["data"]
+        return {"total": d.get("human_readable_total", "—"),
+                "languages": [(l["name"], l.get("text", ""), l.get("percent", 0.0))
+                              for l in d.get("languages", [])][:5]}
+    except Exception as e:
+        print("WakaTime unavailable:", e)
+        return None
+
+
+def bar(x, y, w, h, pct, fill="url(#accent)"):
+    filled = max(w * pct / 100.0, 2.5)
+    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{h/2}" '
+            f'fill="#ffffff" fill-opacity="0.07"/>'
+            f'<rect x="{x}" y="{y}" width="{filled:.1f}" height="{h}" rx="{h/2}" '
+            f'fill="{fill}"/>')
+
+
+def waka_card(w_data):
+    rows = w_data["languages"]
+    out = [f'''
+    <text x="28" y="38" fill="{MUTED}" font-size="11" font-weight="700"
+          letter-spacing="2.2">CODING ACTIVITY</text>
+    <text x="{W-28}" y="38" fill="{DIM}" font-size="10.5"
+          text-anchor="end">last 7 days · {w_data["total"]}</text>
+    <path d="M28 54 H{W-28}" stroke="#ffffff" stroke-opacity="0.10"/>''']
+
+    y = 78
+    for name, text, pct in rows:
+        out.append(f'''
+    <text x="28" y="{y+4}" fill="{TEXT}" font-size="12.5"
+          font-weight="700">{name[:14]}</text>
+    <text x="150" y="{y+4}" fill="{DIM}" font-size="10.5">{text}</text>
+    {bar(258, y-4, 160, 7, pct)}
+    <text x="{W-28}" y="{y+4}" fill="{MUTED}" font-size="11"
+          font-weight="700" text-anchor="end">{pct:.0f}%</text>''')
+        y += 23
+
+    if not rows:
+        out.append(f'''
+    <text x="{W/2}" y="112" fill="{DIM}" font-size="12"
+          text-anchor="middle">No coding activity recorded yet</text>''')
+    return shell("".join(out), "Coding activity")
+
+
+# ---------------------------------------------------------------- rhythm
+def rhythm_card(days):
+    """Commits per weekday, derived from the contribution calendar."""
+    names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    tot = [0] * 7
+    for iso, n in days.items():
+        tot[dt.date.fromisoformat(iso).weekday()] += n
+    peak = max(tot) if tot else 0
+    best = names[tot.index(peak)] if peak else "—"
+    grand = sum(tot) or 1
+
+    pad_l, pad_r, top, base = 34, 28, 78, 152
+    span = W - pad_l - pad_r
+    bw = 36
+    gap = (span - 7 * bw) / 6
+
+    out = [f'''
+    <text x="28" y="38" fill="{MUTED}" font-size="11" font-weight="700"
+          letter-spacing="2.2">WEEKLY RHYTHM</text>
+    <text x="{W-28}" y="38" fill="{DIM}" font-size="10.5"
+          text-anchor="end">{grand:,} contributions · peak {best}day</text>
+    <path d="M28 54 H{W-28}" stroke="#ffffff" stroke-opacity="0.10"/>
+    <path d="M{pad_l} {base+0.5} H{W-pad_r}" stroke="#ffffff" stroke-opacity="0.12"/>''']
+
+    for i, (nm, v) in enumerate(zip(names, tot)):
+        x = pad_l + i * (bw + gap)
+        h = (base - top) * (v / peak) if peak else 0
+        h = max(h, 3)
+        is_top = v == peak and peak > 0
+        fill = "url(#accent)" if is_top else "#ffffff"
+        op = "" if is_top else ' fill-opacity="0.16"'
+        out.append(f'''
+    <rect x="{x:.1f}" y="{base-h:.1f}" width="{bw}" height="{h:.1f}" rx="6"
+          fill="{fill}"{op}/>
+    <text x="{x+bw/2:.1f}" y="{base-h-8:.1f}" fill="{TEXT if is_top else DIM}"
+          font-size="10" font-weight="700" text-anchor="middle">{v}</text>
+    <text x="{x+bw/2:.1f}" y="{base+18}" fill="{MUTED if is_top else DIM}"
+          font-size="10" font-weight="{700 if is_top else 400}"
+          text-anchor="middle">{nm}</text>''')
+
+    return shell("".join(out), "Weekly rhythm")
+
+
 # ---------------------------------------------------------------- main
 DEMO = {"days": {}, "stars": 1284, "commits": 4317, "prs": 268,
         "issues": 143, "followers": 892, "repos": 47, "contributed": 31}
@@ -423,6 +524,19 @@ def main():
     open(f"{OUT}/streak.svg", "w").write(streak_card(s))
     open(f"{OUT}/stats.svg", "w").write(stats_card(data, user))
     open(f"{OUT}/graph.svg", "w").write(graph_card(data["days"]))
+    open(f"{OUT}/rhythm.svg", "w").write(rhythm_card(data["days"]))
+
+    wk = ({"total": "18 hrs 42 mins",
+           "languages": [("TypeScript", "7 hrs 12 mins", 38.4),
+                         ("Dart", "4 hrs 51 mins", 25.9),
+                         ("Python", "3 hrs 6 mins", 16.6),
+                         ("SQL", "2 hrs 2 mins", 10.9),
+                         ("Markdown", "1 hr 31 mins", 8.2)]}
+          if demo else fetch_waka(os.environ.get("WAKATIME_API_KEY", "")))
+    if wk:
+        open(f"{OUT}/waka.svg", "w").write(waka_card(wk))
+    else:
+        print("skipping waka.svg (no WAKATIME_API_KEY or API error)")
     open(f"{OUT}/graph-wide.svg", "w").write(
         graph_card(data["days"], w=1000, h=230))
     print(f"wrote {OUT}/streak.svg and {OUT}/stats.svg")
