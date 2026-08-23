@@ -32,6 +32,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
         run: python3 scripts/gen_cards.py
 
       - name: Commit and push
