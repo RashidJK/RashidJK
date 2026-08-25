@@ -22,20 +22,20 @@
     <text x="28" y="38" fill="#43dfcf" font-size="11" font-weight="700"
           letter-spacing="2.2">WEEKLY RHYTHM</text>
     <text x="466" y="38" fill="#7d8c8a" font-size="10.5"
-          text-anchor="end">879 contributions · peak Thuday</text>
+          text-anchor="end">896 contributions · peak Thuday</text>
     <path d="M28 54 H466" stroke="#ffffff" stroke-opacity="0.10"/>
     <path d="M34 152.5 H466" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="34.0" y="105.2" width="36" height="46.8" rx="6"
+    <rect x="34.0" y="101.1" width="36" height="50.9" rx="6"
           fill="#ffffff" fill-opacity="0.16"/>
-    <text x="52.0" y="97.2" fill="#7d8c8a"
-          font-size="10" font-weight="700" text-anchor="middle">136</text>
+    <text x="52.0" y="93.1" fill="#7d8c8a"
+          font-size="10" font-weight="700" text-anchor="middle">148</text>
     <text x="52.0" y="170" fill="#7d8c8a"
           font-size="10" font-weight="400"
           text-anchor="middle">Mon</text>
-    <rect x="100.0" y="119.0" width="36" height="33.0" rx="6"
+    <rect x="100.0" y="117.2" width="36" height="34.8" rx="6"
           fill="#ffffff" fill-opacity="0.16"/>
-    <text x="118.0" y="111.0" fill="#7d8c8a"
-          font-size="10" font-weight="700" text-anchor="middle">96</text>
+    <text x="118.0" y="109.2" fill="#7d8c8a"
+          font-size="10" font-weight="700" text-anchor="middle">101</text>
     <text x="118.0" y="170" fill="#7d8c8a"
           font-size="10" font-weight="400"
           text-anchor="middle">Tue</text>
