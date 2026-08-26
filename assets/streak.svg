@@ -42,9 +42,9 @@
             fill="url(#accent)"/>
     </g>
     <text x="247" y="94" fill="#eafffb" font-size="36" font-weight="800"
-          text-anchor="middle">30</text>
+          text-anchor="middle">0</text>
     <text x="247" y="150" fill="#43dfcf" font-size="9.5" font-weight="700"
           letter-spacing="1.6" text-anchor="middle">CURRENT STREAK</text>
     <text x="247" y="169" fill="#7d8c8a" font-size="9.5"
-          text-anchor="middle">Jul 27, 2026 – Aug 25, 2026</text></g>
+          text-anchor="middle">—</text></g>
 </svg>
