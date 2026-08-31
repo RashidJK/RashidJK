@@ -22,41 +22,41 @@
     <text x="28" y="38" fill="#43dfcf" font-size="11" font-weight="700"
           letter-spacing="2.2">CODING ACTIVITY</text>
     <text x="466" y="38" fill="#7d8c8a" font-size="10.5"
-          text-anchor="end">last 7 days · 4 hrs 10 mins</text>
+          text-anchor="end">last 7 days · 6 hrs 31 mins</text>
     <path d="M28 54 H466" stroke="#ffffff" stroke-opacity="0.10"/>
     <text x="28" y="74" fill="#eafffb" font-size="12.5"
           font-weight="700">Other</text>
-    <text x="150" y="74" fill="#7d8c8a" font-size="10.5">5 hrs 3 mins</text>
-    <rect x="258" y="66" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="66" width="87.6" height="7" rx="3.5" fill="url(#accent)"/>
+    <text x="150" y="74" fill="#7d8c8a" font-size="10.5">6 hrs 42 mins</text>
+    <rect x="258" y="66" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="66" width="81.1" height="7" rx="3.5" fill="url(#accent)"/>
     <text x="466" y="74" fill="#43dfcf" font-size="11"
-          font-weight="700" text-anchor="end">55%</text>
+          font-weight="700" text-anchor="end">51%</text>
     <text x="28" y="94" fill="#eafffb" font-size="12.5"
           font-weight="700">TypeScript</text>
-    <text x="150" y="94" fill="#7d8c8a" font-size="10.5">3 hrs 12 mins</text>
-    <rect x="258" y="86" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="86" width="55.7" height="7" rx="3.5" fill="url(#accent)"/>
+    <text x="150" y="94" fill="#7d8c8a" font-size="10.5">4 hrs 48 mins</text>
+    <rect x="258" y="86" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="86" width="58.2" height="7" rx="3.5" fill="url(#accent)"/>
     <text x="466" y="94" fill="#43dfcf" font-size="11"
-          font-weight="700" text-anchor="end">35%</text>
+          font-weight="700" text-anchor="end">36%</text>
     <text x="28" y="114" fill="#eafffb" font-size="12.5"
-          font-weight="700">JavaScript</text>
-    <text x="150" y="114" fill="#7d8c8a" font-size="10.5">15 mins</text>
-    <rect x="258" y="106" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="106" width="4.4" height="7" rx="3.5" fill="url(#accent)"/>
+          font-weight="700">HTML</text>
+    <text x="150" y="114" fill="#7d8c8a" font-size="10.5">42 mins</text>
+    <rect x="258" y="106" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="106" width="8.6" height="7" rx="3.5" fill="url(#accent)"/>
     <text x="466" y="114" fill="#43dfcf" font-size="11"
-          font-weight="700" text-anchor="end">3%</text>
+          font-weight="700" text-anchor="end">5%</text>
     <text x="28" y="134" fill="#eafffb" font-size="12.5"
-          font-weight="700">JSON</text>
-    <text x="150" y="134" fill="#7d8c8a" font-size="10.5">14 mins</text>
-    <rect x="258" y="126" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="126" width="4.3" height="7" rx="3.5" fill="url(#accent)"/>
+          font-weight="700">CSS</text>
+    <text x="150" y="134" fill="#7d8c8a" font-size="10.5">16 mins</text>
+    <rect x="258" y="126" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="126" width="3.4" height="7" rx="3.5" fill="url(#accent)"/>
     <text x="466" y="134" fill="#43dfcf" font-size="11"
-          font-weight="700" text-anchor="end">3%</text>
+          font-weight="700" text-anchor="end">2%</text>
     <text x="28" y="154" fill="#eafffb" font-size="12.5"
-          font-weight="700">Markdown</text>
-    <text x="150" y="154" fill="#7d8c8a" font-size="10.5">14 mins</text>
-    <rect x="258" y="146" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="146" width="4.2" height="7" rx="3.5" fill="url(#accent)"/>
+          font-weight="700">JavaScript</text>
+    <text x="150" y="154" fill="#7d8c8a" font-size="10.5">15 mins</text>
+    <rect x="258" y="146" width="160" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.07"/><rect x="258" y="146" width="3.1" height="7" rx="3.5" fill="url(#accent)"/>
     <text x="466" y="154" fill="#43dfcf" font-size="11"
-          font-weight="700" text-anchor="end">3%</text>
+          font-weight="700" text-anchor="end">2%</text>
     <path d="M28 159 H466" stroke="#ffffff" stroke-opacity="0.08"/>
     <text x="28" y="179" fill="#7d8c8a" font-size="10.5"
           letter-spacing="1.4">ALL TIME · since Jun 2026</text>
     <text x="466" y="179" fill="#eafffb" font-size="11.5" font-weight="700"
-          text-anchor="end">133 hrs 49 mins</text></g>
+          text-anchor="end">138 hrs 34 mins</text></g>
 </svg>
