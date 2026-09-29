@@ -22,13 +22,13 @@
     <text x="28" y="38" fill="#43dfcf" font-size="11" font-weight="700"
           letter-spacing="2.2">WEEKLY RHYTHM</text>
     <text x="466" y="38" fill="#7d8c8a" font-size="10.5"
-          text-anchor="end">1,285 contributions · peak Thuday</text>
+          text-anchor="end">1,287 contributions · peak Thuday</text>
     <path d="M28 54 H466" stroke="#ffffff" stroke-opacity="0.10"/>
     <path d="M34 152.5 H466" stroke="#ffffff" stroke-opacity="0.12"/>
-    <rect x="34.0" y="101.0" width="36" height="51.0" rx="6"
+    <rect x="34.0" y="100.5" width="36" height="51.5" rx="6"
           fill="#ffffff" fill-opacity="0.16"/>
-    <text x="52.0" y="93.0" fill="#7d8c8a"
-          font-size="10" font-weight="700" text-anchor="middle">202</text>
+    <text x="52.0" y="92.5" fill="#7d8c8a"
+          font-size="10" font-weight="700" text-anchor="middle">204</text>
     <text x="52.0" y="170" fill="#7d8c8a"
           font-size="10" font-weight="400"
           text-anchor="middle">Mon</text>
