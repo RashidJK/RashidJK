@@ -17,169 +17,219 @@
 </div>
 
 <div>
-  <svg width="700" height="420" viewBox="0 0 700 420"
+<svg width="744" height="292" viewBox="0 0 744 292"
      xmlns="http://www.w3.org/2000/svg">
 
-  <rect width="700" height="420" rx="24"
-        fill="#171719"
-        stroke="#343438"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#202022"/>
+      <stop offset="100%" stop-color="#151517"/>
+    </linearGradient>
 
-  <!-- Title -->
-  <text x="35" y="45"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
-        font-size="14"
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2edfd0"/>
+      <stop offset="100%" stop-color="#48d8cc"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- CARD -->
+  <rect x="1" y="1" width="742" height="290" rx="28"
+        fill="url(#bg)"
+        stroke="#363639"
+        stroke-width="1.5"/>
+
+  <!-- HEADER -->
+  <text x="40" y="43"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
         font-weight="700"
         letter-spacing="3">
     TECH STACK EXPERIENCE
   </text>
 
-  <text x="35" y="72"
-        fill="#77777d"
-        font-family="Arial, sans-serif"
-        font-size="12">
-    Languages &amp; frameworks I work with
+  <text x="700" y="43"
+        fill="#77777b"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11"
+        text-anchor="end">
+    7 technologies
   </text>
 
-  <!-- TypeScript -->
-  <text x="35" y="120"
-        fill="#f2f2f2"
-        font-family="Arial, sans-serif"
+  <!-- COLUMN LABELS -->
+  <text x="40" y="76"
+        fill="#6f7075"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10"
+        font-weight="700"
+        letter-spacing="1.5">
+    TECHNOLOGY
+  </text>
+
+  <text x="255" y="76"
+        fill="#6f7075"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10"
+        font-weight="700"
+        letter-spacing="1.5">
+    EXPERIENCE
+  </text>
+
+  <text x="650" y="76"
+        fill="#6f7075"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="10"
+        font-weight="700"
+        letter-spacing="1.5"
+        text-anchor="end">
+    USAGE
+  </text>
+
+  <!-- ROW 1: TYPESCRIPT -->
+  <text x="40" y="105"
+        fill="#f1f1f2"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="14"
         font-weight="600">
     TypeScript
   </text>
 
-  <rect x="180" y="108" width="300" height="10" rx="5"
-        fill="#29292d"/>
-  <rect x="180" y="108" width="270" height="10" rx="5"
-        fill="#42e6d0"/>
+  <rect x="255" y="96" width="300" height="8" rx="4"
+        fill="#303034"/>
+  <rect x="255" y="96" width="285" height="8" rx="4"
+        fill="url(#bar)"
+        filter="url(#glow)"/>
 
-  <text x="505" y="119"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
+  <text x="650" y="105"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="13"
-        font-weight="700">
-    90%
+        font-weight="700"
+        text-anchor="end">
+    95%
   </text>
 
-  <!-- React -->
-  <text x="35" y="165"
-        fill="#f2f2f2"
-        font-family="Arial, sans-serif"
+  <!-- ROW 2: REACT -->
+  <text x="40" y="139"
+        fill="#f1f1f2"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="14"
         font-weight="600">
     React
   </text>
 
-  <rect x="180" y="153" width="300" height="10" rx="5"
-        fill="#29292d"/>
-  <rect x="180" y="153" width="240" height="10" rx="5"
-        fill="#42e6d0"/>
+  <rect x="255" y="130" width="300" height="8" rx="4"
+        fill="#303034"/>
+  <rect x="255" y="130" width="255" height="8" rx="4"
+        fill="url(#bar)"/>
 
-  <text x="505" y="164"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
+  <text x="650" y="139"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="13"
-        font-weight="700">
+        font-weight="700"
+        text-anchor="end">
+    85%
+  </text>
+
+  <!-- ROW 3: DART -->
+  <text x="40" y="173"
+        fill="#f1f1f2"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14"
+        font-weight="600">
+    Dart / Flutter
+  </text>
+
+  <rect x="255" y="164" width="300" height="8" rx="4"
+        fill="#303034"/>
+  <rect x="255" y="164" width="240" height="8" rx="4"
+        fill="url(#bar)"/>
+
+  <text x="650" y="173"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
+        font-weight="700"
+        text-anchor="end">
     80%
   </text>
 
-  <!-- Flutter -->
-  <text x="35" y="210"
-        fill="#f2f2f2"
-        font-family="Arial, sans-serif"
-        font-size="14"
-        font-weight="600">
-    Flutter
-  </text>
-
-  <rect x="180" y="198" width="300" height="10" rx="5"
-        fill="#29292d"/>
-  <rect x="180" y="198" width="225" height="10" rx="5"
-        fill="#42e6d0"/>
-
-  <text x="505" y="209"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
-        font-size="13"
-        font-weight="700">
-    75%
-  </text>
-
-  <!-- Python -->
-  <text x="35" y="255"
-        fill="#f2f2f2"
-        font-family="Arial, sans-serif"
+  <!-- ROW 4: PYTHON -->
+  <text x="40" y="207"
+        fill="#f1f1f2"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="14"
         font-weight="600">
     Python
   </text>
 
-  <rect x="180" y="243" width="300" height="10" rx="5"
-        fill="#29292d"/>
-  <rect x="180" y="243" width="180" height="10" rx="5"
-        fill="#42e6d0"/>
+  <rect x="255" y="198" width="300" height="8" rx="4"
+        fill="#303034"/>
+  <rect x="255" y="198" width="195" height="8" rx="4"
+        fill="url(#bar)"/>
 
-  <text x="505" y="254"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
+  <text x="650" y="207"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="13"
-        font-weight="700">
-    60%
+        font-weight="700"
+        text-anchor="end">
+    65%
   </text>
 
-  <!-- Java -->
-  <text x="35" y="300"
-        fill="#f2f2f2"
-        font-family="Arial, sans-serif"
+  <!-- ROW 5: JAVA -->
+  <text x="40" y="241"
+        fill="#f1f1f2"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="14"
         font-weight="600">
     Java
   </text>
 
-  <rect x="180" y="288" width="300" height="10" rx="5"
-        fill="#29292d"/>
-  <rect x="180" y="288" width="150" height="10" rx="5"
-        fill="#42e6d0"/>
+  <rect x="255" y="232" width="300" height="8" rx="4"
+        fill="#303034"/>
+  <rect x="255" y="232" width="135" height="8" rx="4"
+        fill="url(#bar)"/>
 
-  <text x="505" y="299"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
+  <text x="650" y="241"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="13"
-        font-weight="700">
-    50%
+        font-weight="700"
+        text-anchor="end">
+    45%
   </text>
 
-  <!-- C++ -->
-  <text x="35" y="345"
-        fill="#f2f2f2"
-        font-family="Arial, sans-serif"
+  <!-- ROW 6: C++ -->
+  <text x="40" y="275"
+        fill="#f1f1f2"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="14"
         font-weight="600">
     C++
   </text>
 
-  <rect x="180" y="333" width="300" height="10" rx="5"
-        fill="#29292d"/>
-  <rect x="180" y="333" width="120" height="10" rx="5"
-        fill="#42e6d0"/>
+  <rect x="255" y="266" width="300" height="8" rx="4"
+        fill="#303034"/>
+  <rect x="255" y="266" width="105" height="8" rx="4"
+        fill="url(#bar)"/>
 
-  <text x="505" y="344"
-        fill="#42e6d0"
-        font-family="Arial, sans-serif"
+  <text x="650" y="275"
+        fill="#43e4d4"
+        font-family="Arial, Helvetica, sans-serif"
         font-size="13"
-        font-weight="700">
-    40%
-  </text>
-
-  <!-- Footer -->
-  <text x="35" y="390"
-        fill="#66666b"
-        font-family="Arial, sans-serif"
-        font-size="11"
-        letter-spacing="1">
-    EXPERIENCE IS BASED ON PROJECT USAGE &amp; FAMILIARITY
+        font-weight="700"
+        text-anchor="end">
+    35%
   </text>
 
 </svg>
