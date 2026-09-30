@@ -25,12 +25,10 @@
       <stop offset="0%" stop-color="#202022"/>
       <stop offset="100%" stop-color="#151517"/>
     </linearGradient>
-
     <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#2edfd0"/>
       <stop offset="100%" stop-color="#48d8cc"/>
     </linearGradient>
-
     <filter id="glow">
       <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge>
