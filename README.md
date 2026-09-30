@@ -16,7 +16,6 @@
   <img src="assets/rhythm.svg" width="49%" />
 </div>
 
-<div>
 <svg width="744" height="292" viewBox="0 0 744 292"
      xmlns="http://www.w3.org/2000/svg">
 
@@ -231,6 +230,5 @@
   </text>
 
 </svg>
-</div>
 
 </div>
