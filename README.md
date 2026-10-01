@@ -16,8 +16,9 @@
   <img src="assets/rhythm.svg" width="49%" />
 </div>
 
+<!--
 <p align="center">
   <img src="./assets/tech-stack.svg" width="100%">
 </p>
-
+-->
 </div>
