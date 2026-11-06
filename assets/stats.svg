@@ -41,7 +41,7 @@
     </g>
     <text x="52" y="122" fill="#7d8c8a" font-size="12.5">Pull Requests</text>
     <text x="232" y="122" fill="#eafffb" font-size="14" font-weight="700"
-          text-anchor="end">205</text>
+          text-anchor="end">206</text>
     <g transform="translate(262,110) scale(0.62)">
       <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a1.6 1.6 0 110 3.2A1.6 1.6 0 0112 5zm1.4 13h-2.8v-8h2.8z" fill="#49e6d4" opacity="0.85"/>
     </g>
